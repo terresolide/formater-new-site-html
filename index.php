@@ -20,10 +20,18 @@
     "url_new"=> array(
         "fr" => "https://www.poleterresolide.fr",
         "en" => "https://en.poleterresolide.fr"),
-     "presentation" => array( 
-        "fr" => "Pour 2018, ForM@Ter ....",
-        "en" => " New Year 2018")
-    );
+     "presentation1" => array( 
+        "fr" => "Le pôle Terre Solide ouvre son nouveau site",
+        "en" => "Solid Earth Pole open a new portal"),
+     "presentation2" => array(
+         "fr" => "News, agenda, projets, membres, accès aux données... vous trouverez toutes les informations concernant ForM@Ter sur le nouveau portail: ",
+         "en" => "News, diary, projects, members, data access ... you find all informations about ForM@Ter on the new portal:"),
+     "presentation3" => array(
+         "fr" => "L'ancien portail est toujours accessible via <a href='http://ante.poleterresolide.fr'>http://ante.poleterresolide.fr</a>",
+         "en" => "The old portal is however accessible via <a href='http://ante.poleterresolide.fr'>http://ante.poleterresolide.fr</a>")
+     
+     
+     );
  function printer( $name){
     global $lang, $language;
     if( isset( $language[ $name ]) && isset( $language[ $name ][ $lang])){
@@ -35,25 +43,27 @@
 <html>
   <head>
     <title><?php printer( "title");?></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@ForMaTerre">
+    <meta name="twitter:title" content="<?php printer("title");?>">
+    <meta name="twitter:description" content="<?php printer("presentation1")?>">
+    <meta name="twitter:creator" content="@ForMaTerre">
+    <meta name="twitter:url" content="http://poleterresolide.fr" />
+    <meta name="twitter:domain" content="poleterresolide.fr" />
+    <!-- Twitter summary card with large image must be at least 280x150px -->
+	<meta name="twitter:image:src" content="https://raw.githubusercontent.com/terresolide/formater-wp-child-theme/master/screenshot.png">
     <style>
     body, html {
         height: 100%;
-        background:#d6c6a5;
-        color:#fff;
+        background:#fff;
         margin:0;
         padding:0;
+        font-size:16px;
     }
-    #slide1 {
-        background-image: url(images/bkg-img1.jpg);
-        /* Full height */
-        height: 100%;
-        /* Create the parallax scrolling effect */
-        background-attachment: fixed;
-        background-position: top left;
-        background-repeat: repeat;
-        
-    }
-    #slide2{
+   
+    #slide2,
+    #slide5{
        /* background-attachment: fixed;
         background-position: center;
         background-repeat: no-repeat;*/
@@ -61,28 +71,48 @@
         background:#fff;
         box-shadow:  0 0 5px 2px #282a2d; 
     }
-    #slide3 {
+    #slide3,
+    #slide6 {
         background-image: url(images/bkg-img2.jpg);
         min-height:280px;
-        height: 40%;
+        height: 50%;
         /* Create the parallax scrolling effect */
         background-attachment: fixed;
         background-position: center;
         background-repeat: no-repeat;
         background-size: cover;
     }
-    #slide4 {
-        /* Full height */
-        height: 45%;
+    #slide4,
+    #slide7 {
         /* Create the parallax scrolling effect */
         background-attachment: fixed;
         background-position: center;
         background-repeat: no-repeat;
         background-size: cover;
         background:#fff;
+        text-align:center;
+    }
+    #slide4{
+        height: 35%;
+    }
+    #slide7{
+        height:50%;
     }
     .slide_inside{
         padding:50px;
+    }
+    #slide2 > div{
+        padding:10px 30px;display:inline;max-height:100%;padding-left:10%;"
+    }
+    #slide7 .description{
+        font-size:2em;
+        font-weight:600;
+        margin: 20px auto;
+        max-width:900px;
+        word-wrap: break-word;
+    }
+    .site-branding .description{
+   font-size:3em;text-align:center; text-shadow:1px 1px #555;
     }
     .site-branding h1 a {
         background-color: rgba(221,153,70,.5);
@@ -101,34 +131,49 @@
         display: inline-block;
         margin: 0;
         padding: 0 10px;
+        color:#fff;
         background-color: rgba(0, 0, 0, 0.3);
         font-size: 18px;
     }
     .site-branding > div {
         padding-left: 10%;
         padding-right: 10%;
+        word-wrap: break-word;
+    }
+
+    a{
+    color: #754a15;
+    text-decoration:none;
+    }
+    a:hover{
+        color: #8c0209;
+    }
+    @media screen and (max-width: 700px){
+         .site-branding .description{
+            font-size:2em;
+         }
+         #slide7 .description{
+          font-size:1.5em;
+         }
+    }
+    @media screen and (max-width: 500px){
+         .site-branding .description{
+            font-size:2em;
+         }
+         #slide7 .description{
+            font-size:1.5em;
+         }
     }
     </style>
   </head>
-  <body load="scroll(0,0)">
-
-  <div id="slide1">
-  <div style="text-align:center;height:100%;">
-    <div style="margin:0 auto;background:#fff;color:#000;display:inline-block;height:98%;width:80%;padding:5px 10px;text-align:left;">
-    <div><img src="images/logo-formater-transparent.png"/></div>
-    <div >formater a un nouveau site</div>
-    <div>aussi ici</div>
-    <div>aussi là</div>
-    </div>
-  </div>
-  </div>
-  
+  <body > 
   <div id="slide2">
-    <div style="padding:10px 30px;display:inline;max-height:100%;padding-left:10%;">
-      <img src="images/logo-formater-transparent.png" style="max-height: 95%;height:70px;margin-top:5px;"/>
+    <div >
+      <a href="<?php printer('url_new');?>">
+      	<img src="images/logo-formater-transparent.png" style="max-height: 95%;height:70px;margin-top:10px;"/>
+      </a>
     </div>
   </div>
-  
   <div id="slide3">
     <div class="slide_inside site-branding">
       <div>
@@ -139,40 +184,31 @@
     </div>
   </div>
   <div id="slide4">
-    et un autre slide
+   <div class="slide_inside site-branding">
+   		<div class="description" ><?php printer("presentation1");?>
+   		<div><a href="<?php printer("url_new");?>"><?php printer("url_new");?></a></div>
+   		</div>
+   </div>
   </div>
-  <script type="text/javascript">
-  var position = document.getElementById("slide2").offsetTop;
-  var hasScroll = false;
-  
-  window.onload= function(){
-      console.log("loaded");
-      setTimeout( function(){
-      window.scroll( 0, 0);
-     hasScroll = false;
-   /* window.onscroll = function(){
-        hasScroll = true;
-        console.log("scroll");
-    };*/
-    setTimeout(scroller, 3000);
-      },0);
-
-   
-    
-   
-
-    //edited to add simple animation
-  function scroller() { 
-      var scrollY = window.scrollY;
-      scrollY += 3;
-      window.scrollTo( 0, scrollY);
-      if (!hasScroll && scrollY < position) {
-        timer = window.setTimeout(scroller, 0);
-      } 
-  }
-  };
-  
- 
-  </script>
+  <div id="slide6">
+    <div class="slide_inside site-branding">
+      
+    </div>
+  </div>
+  <div id="slide7">
+   <div class="slide_inside">
+   		<div class="description">
+   		<?php printer("presentation2");?><br />
+   		<a href="<?php printer("url_new");?>"><?php printer("url_new");?></a>
+   		</div>
+   		<div class="description"><?php printer("presentation3")?></div>
+   		  
+   </div>
+  </div>
+ <script type="text/javascript">
+  setTimeout( function(){
+	  window.scrollTo(0,0)
+  },0);
+ </script>
   </body>
 </html>
