@@ -20,6 +20,9 @@
     "url_new"=> array(
         "fr" => "https://www.poleterresolide.fr",
         "en" => "https://en.poleterresolide.fr"),
+     "presentation" => array( 
+        "fr" => "Pour 2018, ForM@Ter ....",
+        "en" => " New Year 2018")
     );
  function printer( $name){
     global $lang, $language;
@@ -31,7 +34,7 @@
 ?><!DOCTYPE html>
 <html>
   <head>
-    <title>Page site change</title>
+    <title><?php printer( "title");?></title>
     <style>
     body, html {
         height: 100%;
@@ -46,15 +49,17 @@
         height: 100%;
         /* Create the parallax scrolling effect */
         background-attachment: fixed;
-        background-position: left;
-        background-repeat: repeat-x;
+        background-position: top left;
+        background-repeat: repeat;
+        
     }
     #slide2{
-        background-attachment: fixed;
+       /* background-attachment: fixed;
         background-position: center;
-        background-repeat: no-repeat;
+        background-repeat: no-repeat;*/
         height:15%;
         background:#fff;
+        box-shadow:  0 0 5px 2px #282a2d; 
     }
     #slide3 {
         background-image: url(images/bkg-img2.jpg);
@@ -109,8 +114,8 @@
 
   <div id="slide1">
   <div style="text-align:center;height:100%;">
-    <div style="margin:0 auto;background:#fff;color:#000;display:inline-block;height:100%;width:80%;padding:5px 10px;text-align:left;">
-    <div><img src="images/formater.png"/></div>
+    <div style="margin:0 auto;background:#fff;color:#000;display:inline-block;height:98%;width:80%;padding:5px 10px;text-align:left;">
+    <div><img src="images/logo-formater-transparent.png"/></div>
     <div >formater a un nouveau site</div>
     <div>aussi ici</div>
     <div>aussi là</div>
@@ -120,7 +125,7 @@
   
   <div id="slide2">
     <div style="padding:10px 30px;display:inline;max-height:100%;padding-left:10%;">
-      <img src="images/formater.png" style="max-height: 100%;"/>
+      <img src="images/logo-formater-transparent.png" style="max-height: 95%;height:70px;margin-top:5px;"/>
     </div>
   </div>
   
@@ -137,16 +142,24 @@
     et un autre slide
   </div>
   <script type="text/javascript">
+  var position = document.getElementById("slide2").offsetTop;
+  var hasScroll = false;
+  
   window.onload= function(){
       console.log("loaded");
+      setTimeout( function(){
       window.scroll( 0, 0);
-    var hasScroll = false;
-    var num = 1;
-    
-    window.scrollTo(0,0);
+     hasScroll = false;
+   /* window.onscroll = function(){
+        hasScroll = true;
+        console.log("scroll");
+    };*/
+    setTimeout(scroller, 3000);
+      },0);
+
    
-    var position = document.getElementById("slide2").offsetTop;
-    setTimeout(scroller, 5000);
+    
+   
 
     //edited to add simple animation
   function scroller() { 
@@ -159,10 +172,7 @@
   }
   };
   
-  window.onscroll = function(){
-      hasScroll = true;
-      console.log("scroll");
-  };
+ 
   </script>
   </body>
 </html>
