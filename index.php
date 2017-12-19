@@ -48,6 +48,7 @@
   <head>
     <title><?php printer( "title");?></title>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta property="og:title" content="<?php printer("title");?>" />
 	<meta property="og:type" content="website" />
 	<meta property="og:url" content="http://poleterresolide.fr" />
@@ -55,17 +56,8 @@
     <meta property="og:description" content="<?php printer("presentation1");?>" />
     <meta property="og:locale" content="<?php printer("locale");?>" />
 	<meta property="og:locale:alternate" content="<?php printer("alternate");?>" />
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:site" content="@ForMaTerre">
-    <meta name="twitter:title" content="<?php printer("title");?>">
-    <meta name="twitter:description" content="<?php printer("presentation1");?>">
-    <meta name="twitter:creator" content="@ForMaTerre">
-    <meta name="twitter:url" content="http://poleterresolide.fr" />
-    <meta name="twitter:domain" content="poleterresolide.fr" />
-    <!-- Twitter summary card with large image must be at least 280x150px -->
-	<meta name="twitter:image:src" content="https://raw.githubusercontent.com/terresolide/formater-wp-child-theme/master/screenshot.png">
-    <link href="images/favicon.ico" rel="shortcut icon">
+   
+    <link href="images/formater_favicon-40x40.png" rel="icon" sizes="32x32">
     <style>
     body, html {
         height: 100%;
